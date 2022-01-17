@@ -1,0 +1,13 @@
+{% extends "encyclopedia/layout.html" %}
+{% block title %} Create {% endblock %}
+{% block body %}
+{% if exists %}
+<button class="alert alert-info">
+    <strong>Error!</strong> This title already exists. </button>
+{% endif %}
+<form action="{% url 'create' %}" method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" placeholder="submit">
+</form>
+{% endblock %}
